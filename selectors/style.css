@@ -1,90 +1,85 @@
-ul {
-	background-color: dodgerblue;
+h1.title {
+  color: red;
 }
 
-ul li {
-	color: white;
-	font-family: sans-serif;
-}
-
-ul li::marker {
-	content: "😀 ";
-}
-ul li:nth-child(5) {
-	text-transform: capitalize;
-}
-
-li > ul > li {
-	color: red;
-}
-
-li {
-	& ul {
-		& li {
-			color: blue;
-		}
-	}
-}
-
-.card {
-	background-color: antiquewhite;
-	padding: 32px;
-	border-radius: 16px;
-	/* .card p */
-	& p::first-letter {
-		text-transform: uppercase;
-		color: pink;
-	}
-	& span {
-		font-weight: 700;
-	}
-	.title {
-		font-size: 2rem;
-		text-transform: capitalize;
-	}
-}
-
-element sub-element {
-}
-
-element > direct-children {
-}
-
-ol > li:nth-child(1) + li {
-	color: blue;
-}
-
-/* h3 ~ p {
+/* article > .title {
+  text-align: center;
+  font-family: sans-serif;
+  color: whitesmoke;
+  background-color: rebeccapurple;
+  padding: 8px 0;
 } */
 
-ul:has(a) {
-	all: initial;
+/* article:has(mark) {
+  background-color: blue;
+  color: aliceblue;
+  font-size: large;
+  margin-bottom: 50px;
+  padding: 50px;
+} */
+/* 
+article:not(#risk):hover {
+  background-color: yellow;
+}
+ */
+
+/* CSS NESTED */
+
+article {
+  > .title {
+    text-align: center;
+    font-family: sans-serif;
+    color: whitesmoke;
+    background-color: rebeccapurple;
+    padding: 8px 0;
+  }
+  & p {
+    font-style: italic;
+  }
+  &:has(mark) {
+    background-color: blue;
+    color: aliceblue;
+    font-size: large;
+    margin-bottom: 50px;
+    padding: 50px;
+  }
+  &:not(#risk):hover {
+    background-color: yellow;
+  }
 }
 
-article:not(:has(#main-title)) p {
-	color: burlywood;
+/* &  внутри селектора служит заменой article */
+
+.title {
+  text-transform: capitalize;
 }
 
-input {
-	background-color: gray;
-}
-input:focus {
-	background-color: red;
+[href="http://ironhack.com"]
+{
+  font-weight: bold;
 }
 
-input[type="password"] {
-	color: green;
+/* селектор по части атрибута */
+[href*='oo'] {
+  color: red;
 }
 
-a[href*="oo"] {
-	font-size: 2rem;
+[href*='http:']:visited {
+  color: blueviolet;
 }
-a[href^="https"] {
-	color: lightblue;
+/* [id="hadrian"] {}
+	[class="title"]{} */
+
+/* цвет применится к выделенным строчкам */
+p::selection {
+  background-color: bisque;
 }
 
-a[href$=".com"] {
-	background-color: lightgreen;
-	border-radius: 8px;
-	padding: 8px;
+table tbody tr:nth-child(even) {
+  background-color: blanchedalmond;
+}
+
+table tbody tr:nth-child(2n + 5) {
+  background-color: darkblue;
+  color: aliceblue;
 }
