@@ -1,5 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
 h1.title {
   color: red;
+  text-align: center;
+  /* font-size: calc(5vw + 2rem); */
+  font-size: clamp(0.5rem, 4rem, 10vw);
+  /* clamp(min, val, max) */
+}
+
+a:hover {
+  color: black;
+}
+
+table {
+  width: 100%;
+}
+td {
+  padding: 8px;
 }
 
 /* article > .title {
@@ -26,6 +45,12 @@ article:not(#risk):hover {
 /* CSS NESTED */
 
 article {
+  margin: 100px;
+  padding: 50px;
+  width: 500px;
+  min-width: 200px;
+  background-color: aliceblue;
+
   > .title {
     text-align: center;
     font-family: sans-serif;
@@ -37,14 +62,17 @@ article {
     font-style: italic;
   }
   &:has(mark) {
-    background-color: blue;
-    color: aliceblue;
+    background-color: blanchedalmond;
+    color: brown;
     font-size: large;
     margin-bottom: 50px;
     padding: 50px;
   }
   &:not(#risk):hover {
-    background-color: yellow;
+    background-color: blueviolet;
+  }
+  &:has(:checked) p {
+    display: none;
   }
 }
 
@@ -82,4 +110,59 @@ table tbody tr:nth-child(even) {
 table tbody tr:nth-child(2n + 5) {
   background-color: darkblue;
   color: aliceblue;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: aliceblue;
+  }
+}
+
+body {
+  accent-color: red;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes scrollTop {
+  to {
+    background-position-y: -100px;
+  }
+}
+
+.big {
+  font-size: 3rem;
+}
+/* em - relative to parent's fontsize */
+
+.big p {
+  font-size: 2em;
+}
+
+/* responsive  design*/
+/* 
+@media (min-width: 756px) {
+	article p {
+		line-height: 2rem;
+	}
+} */
+
+@media (width >= 768px) {
+  article p {
+    line-height: 2rem;
+  }
+  body {
+    background-color: rgb(207, 198, 198);
+  }
+}
+
+@media (width >= 1024px) {
+  h1.title {
+    color: violet;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 7rem;
+  }
 }
